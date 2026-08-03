@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div align="center">
 <img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
 </div>
@@ -20,3 +21,6 @@ View your app in AI Studio: https://ai.studio/apps/50e40f81-9e6f-4055-aa06-7f910
    `npm run dev`
 # TrustPayCrypto
 # TrustPayCrypto
+=======
+# TrustPayCrypto
+>>>>>>> a7bacd5cd095fdfb3e5a8019e9af2a36ba8ef72f
