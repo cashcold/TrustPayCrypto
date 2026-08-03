@@ -13,15 +13,22 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.json({ limit: '10mb' }));
 
+const allowedOrigins = [
+  "https://trust-pay-crypto.vercel.app",
+  "http://localhost:5173"
+];
+
 app.use(cors({
-  origin: [
-    "https://trustpaycrypto.vercel.app",
-    "http://localhost:5173"
-  ],
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
-
 // Supported Fiat Currencies & Dynamic Exchange Rates vs USD
 let fiatCurrencies = [
   { modelSchema: 'FiatCurrencyTrustPay', code: 'USD', name: 'US Dollar', symbol: '$', rateToUsd: 1.0, flag: '🇺🇸', country: 'United States & Global' },
