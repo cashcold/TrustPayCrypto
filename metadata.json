@@ -1,0 +1,6 @@
+{
+  "name": "TrustPay Crypto",
+  "description": "Buy & Sell Cryptocurrency Securely, Instantly, Anywhere with TrustPay Crypto platform.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
