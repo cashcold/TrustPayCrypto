@@ -138,7 +138,7 @@ export class Header extends React.Component {
               </div>
               <div>
                 <span className="text-lg sm:text-xl font-black tracking-tight text-white flex items-center gap-1 leading-none">
-                  TrustPay <span className="text-[#00B894]">Crypto</span>
+                  TrustPay <span className="text-[#00B894]"> Crypto </span>
                 </span>
                 <span className="text-[9px] sm:text-[10px] text-emerald-400 block font-medium tracking-wider uppercase mt-0.5">
                   Global Exchange
