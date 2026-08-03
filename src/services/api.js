@@ -1,6 +1,9 @@
 // API client service for TrustPay Crypto Express backend
 
-const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:3000/api';
+const API_BASE = (
+  import.meta.env.VITE_API_URL ||
+  'http://localhost:3000/api'
+).replace(/\/$/, '');
 
 async function request(endpoint, options = {}) {
   try {
@@ -11,11 +14,28 @@ async function request(endpoint, options = {}) {
       },
       ...options,
     });
-    const data = await res.json();
-    return data;
+
+    if (!res.ok) {
+      console.error(
+        `API Error ${res.status}:`,
+        await res.text()
+      );
+
+      return {
+        success: false,
+        message: `Server error: ${res.status}`
+      };
+    }
+
+    return await res.json();
+
   } catch (err) {
     console.error(`API Error on ${endpoint}:`, err);
-    return { success: false, message: 'Network error or server unavailable' };
+
+    return {
+      success: false,
+      message: 'Network error or server unavailable'
+    };
   }
 }
 
