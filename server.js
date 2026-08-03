@@ -1,4 +1,5 @@
 import express from 'express';
+import cors from "cors";
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { createServer as createViteServer } from 'vite';
@@ -11,6 +12,15 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json({ limit: '10mb' }));
+
+app.use(cors({
+  origin: [
+    "https://trustpaycrypto.vercel.app",
+    "http://localhost:5173"
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}));
 
 // Supported Fiat Currencies & Dynamic Exchange Rates vs USD
 let fiatCurrencies = [
